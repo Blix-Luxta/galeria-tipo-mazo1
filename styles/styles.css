@@ -6,12 +6,19 @@ body {
     place-items: center;
 }
 
-.card-group, .card{
+/*---------- WRAPS  ---------- */
+.wrap, .card-group, .card{
     aspect-ratio: 5 / 7;
 }
 
-.card-group, .big-card{
+.wrap, .card-group, .big-card{
     width: 30vmin;
+}
+
+/* -------- ELEMENTS ---------- */
+.card-group{
+    position:absolute;
+    transition: transform 400ms ease;
 }
 
 .card {
@@ -32,6 +39,8 @@ body {
     left: 50%;
     transform: translate(-50%,-50%);
 }
+
+/* -----------    CHILDS    ------------- */
 
 .big-card:nth-child(2){
     transform: translatex(-10%) rotate(-1deg);
@@ -89,6 +98,8 @@ body {
     background-size: cover;
     background-position: center;
 }
+
+/* ---------     HOVERS     ---------*/
 .card-group:hover > .big-card:nth-child(2) {
     transform: translate(-75%, 16%) rotate(-24deg);    
 }
@@ -119,4 +130,56 @@ body {
 
 .card-group:hover > .little-card:nth-child(7){
     transform: translate(-280%, -160%) rotate(16deg);
+}
+
+/* ------- BUTTONS -------- */
+
+.cards-swipper-button {
+    display: flex;
+    margin-top: 8vmin;
+    justify-content: space-around;
+}
+
+.cards-swipper-button > button {
+    font-size: 2.5vmin;
+    border: 0.4vmin solid rgb(200, 200, 200);
+    border-radius: 100%;
+    color: white;
+    background-color: transparent;
+    height: 7vmin;
+    width: 7vmin;
+    cursor: pointer;
+}
+
+#love-button{
+    color: rgb(35, 150, 243);
+    border-color: rgb(35, 150, 243) ;
+
+}
+
+.card-group[data-status="unknown"]{
+    transform: scale(0);
+}
+
+.card-group[data-status="after"]{
+    transform: translateX(50%) scale(0);
+}
+
+/* -------- intertactivity ---------- */
+
+.card-group[data-index="1"] > .big-card:nth-child(8) {
+    background-image: url("/images/pizza-humo.jpg");
+}
+
+.card-group[data-index="1"] > .big-card:nth-child(6) {
+    background-image: url("/images/pizzas-blur.jpg");
+}
+
+
+.card-group[data-index="2"] > .big-card:nth-child(8) {
+    background-image: url("/images/pizza-aceitunas-negras.jpg");
+}
+
+.card-group[data-index="2"] > .big-card:nth-child(4) {
+    background-image: url("/images/pizzas-blur.jpg");
 }
